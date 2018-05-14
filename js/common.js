@@ -48,7 +48,7 @@ var calc = {
  },
  perform  : function(){
   var out = {
-	sum : this.credit + this.credit * this.days * this.koef,
+	sum : (this.credit + this.credit * this.days * this.koef).toFixed(2),
 	day : this.convert(this.days)
   };
   return out;  
@@ -87,6 +87,6 @@ var calc = {
 	$('.calc-amount span').html(value.sum);
 	$('.calc-date span').html(value.day);
  });
- //$('#credit').trigger('change');
+ $('#credit').trigger('change');
  
  });
