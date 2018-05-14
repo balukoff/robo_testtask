@@ -1,0 +1,57 @@
+<html>
+<title>Тестовое задание для RoboFinance</title>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel='stylesheet' href='./css/custom.css'>
+</head>
+<body>
+ <div class='container'>
+ <h2>Тестовое задание для RoboFinance</h2>
+ <br>
+ <div class='col-sm-6 parent-wrapper'>
+  <div class='form-calc table'>
+   <div class='col-sm-6'>
+  <div class="input-group spinner">
+    <label>Сумма займа:</label>
+	<input type="text" class="form-control" value="1000" step="1000" min="1000" max="35000" id='credit'>
+    <div class="input-group-btn-vertical">
+      <button class="btn btn-default up" type="button"><i class="fa fa-caret-up"></i></button>
+      <button class="btn btn-default down" type="button"><i class="fa fa-caret-down"></i></button>
+    </div>
+  </div></div>
+  <div class='col-sm-6'>
+  <div class="input-group spinner">
+    <label>Количество дней:</label>
+	<input type="text" class="form-control" value="5" min="5" step="1" max="45" id='days'>
+    <div class="input-group-btn-vertical">
+      <button class="btn btn-default up" type="button"><i class="fa fa-caret-up"></i></button>
+      <button class="btn btn-default down" type="button"><i class="fa fa-caret-down"></i></button>
+    </div>
+  </div>
+  </div>
+  <div class='col-sm-12'>
+   <br>
+   <button class='btn btn-default pull-right calculate'>Расчет</button>
+  </div>
+ 
+ </div>
+  <div class='calc-result'>
+   <div class='col-sm-6 calc-amount'>
+    <label>Сумма возврата:</label>
+    <span></span>
+   </div>
+   <div class='col-sm-6 calc-date'>
+    <label>Дата возврата:</label>
+    <span></span>
+   </div>
+  </div>
+  </div>
+ </div>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script language='javascript' src='./js/common.js'></script>
+ <img src="./img/logo.png" alt="" width="120" height="120" class='float-logo'>
+ </body>
+
+</html>
