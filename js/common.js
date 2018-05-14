@@ -3,14 +3,12 @@ var calc = {
  koef :  0,
  credit: 0,
  days:   0,
+ 
  execute  : function(_rate, _credit, _days){
 	this.init(_rate, _credit, _days);
-	if(this.validate){
- 		this.prepare();
-		return this.perform();
-	}
-	else
-		return 'error';
+	this.validate();
+ 	this.prepare();
+	return this.perform();
  },
  prepare  : function(){
 	 this.credit = parseInt(this.credit);
@@ -22,10 +20,10 @@ var calc = {
 	if(_days != undefined) this.days   = _days;
  },
  validate : function(){
-  var result = true;
-  if((this.credit < 1000) && (this.credit > 35000)) result = false;
-  if((this.days < 5) && (this.days > 45)) result = false;
-  return result;
+  this.credit = this.credit < 1000 ? 1000 : this.credit; 
+  this.credit = this.credit > 35000 ? 35000 : this.credit; 
+  this.days   = this.days < 5  ? 5  : this.days;
+  this.days   = this.days > 45 ? 45: this.days;
  },
  getmonth : function(_month){
   switch(_month){
@@ -58,6 +56,7 @@ var calc = {
 }
 
  $(document).ready(function(){
+ 
  $('.up').on('click', function() {
       var btn = $(this);
 	  var input = btn.closest('.spinner').find('input');
@@ -67,7 +66,8 @@ var calc = {
       } else {
         btn.next("disabled", true);
       }
-    });
+     $(input).trigger('change');
+	});
     
 	$('.down').on('click', function() {
       var btn = $(this);
@@ -77,14 +77,16 @@ var calc = {
 	  else {
         btn.prev("disabled", true);
       }
-    });
+    $(input).trigger('change');
+	});
   
  $('input').on('keydown keyup keypress', function(){ return false; });
  
- $('.calculate').on('click', function(){
-	 var value = calc.execute(koefficient, $('#credit').val(), $('#days').val());
+ $('#credit, #days').on('change', function(){
+	var value = calc.execute(koefficient, $('#credit').val(), $('#days').val());
 	$('.calc-amount span').html(value.sum);
 	$('.calc-date span').html(value.day);
  });
+ //$('#credit').trigger('change');
  
  });
